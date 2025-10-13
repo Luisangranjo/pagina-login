@@ -3,16 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <title>Login Page</title>
+  <link href="https://fonts.googleapismily=Roboto:wght@400;700&display=swap
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      color: #333;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      width: 250px;
+      margin-bottom: 15px;
+      transition: border-color 0.3s;
+    }
+
+    input:focus {
+      border-color: #007BFF;
+      outline: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
   <h2>Restricted Area</h2>
   <input type="text" id="userId" placeholder="Write your ID">
-  <button onclick="verifyID()">Login</button>
+  <button onclick="verifyID()">
+    🔐 Login
+  </button>
   <p id="result"></p>
 
   <script>
     async function verifyID() {
-      const id = document.getElementById("userId").value.trim(); // <- aqui está o .trim()
+      const id = document.getElementById("userId").value.trim();
       const url = "https://script.google.com/macros/s/AKfycbwIcsHldYno-6C4tX9yyDNdZI6sE-FCxq_WWva4Isx5M5ordl4WXoxVByAPl_ggUfU6Yw/exec?id=" + encodeURIComponent(id);
 
       try {
@@ -21,7 +87,7 @@
 
         if (text.startsWith("welcome:")) {
           const nickname = text.split(":")[1];
-          document.getElementById("result").innerHTML = `✅ Welcome, ${nickname}! <a href="https://lookerstudio.google.com/reporting/d7f5975a-4af8-4698-841f-2fbOpen Report</a>`;
+          document.getElementById("result").innerHTML = `✅ Welcome, ${nickname}! https://lookerstudio.google.com/reporting/d7f5975a-4af8-4698-841f-1f5b8d1832fbOpen Report</a>`;
         } else {
           document.getElementById("result").innerHTML = "❌ Access not authorized.";
         }
