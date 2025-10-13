@@ -6,7 +6,7 @@
 </head>
 <body>
   <h2>Área Reservada</h2>
-  <input type="text" id="userId" placeholder="Insere o teu ID">
+  <input type="text" id="userId" placeholder="Write your ID">
   <button onclick="verificarID()">Entrar</button>
   <p id="resultado"></p>
 
@@ -14,14 +14,13 @@
     async function verificarID() {
       const id = document.getElementById("userId").value;
       const url = "https://script.google.com/macros/s/AKfycbwIcsHldYno-6C4tX9yyDNdZI6sE-FCxq_WWva4Isx5M5ordl4WXoxVByAPl_ggUfU6Yw/exec?id=" + encodeURIComponent(id);
-
       const resposta = await fetch(url);
       const texto = await resposta.text();
 
-      if (texto === "autorizado") {
-        window.location.href = "https://sites.google.com/view/k3340-migration";
+      if (texto === "authorized") {
+        window.location.href = "https://lookerstudio.google.com/reporting/d7f5975a-4af8-4698-841f-1f5b8d1832fb";
       } else {
-        document.getElementById("resultado").innerHTML = "❌ Acesso não autorizado.";
+        document.getElementById("resultado").innerHTML = "❌ Access not authorized.";
       }
     }
   </script>
