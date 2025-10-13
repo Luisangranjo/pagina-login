@@ -12,23 +12,23 @@
 
   <script>
     async function verifyID() {
-  const id = document.getElementById("userId").value.trim(); // <- aqui
-  const url = "https://script.google.com/macros/s/AKfycbwIcsHldYno-6C4tX9yyDNdZI6sE-FCxq_WWva4Isx5M5ordl4WXoxVByAPl_ggUfU6Yw/exec?id=" + encodeURIComponent(id);
+      const id = document.getElementById("userId").value.trim(); // <- aqui está o .trim()
+      const url = "https://script.google.com/macros/s/AKfycbwIcsHldYno-6C4tX9yyDNdZI6sE-FCxq_WWva4Isx5M5ordl4WXoxVByAPl_ggUfU6Yw/exec?id=" + encodeURIComponent(id);
 
-  try {
-    const response = await fetch(url);
-    const text = await response.text();
+      try {
+        const response = await fetch(url);
+        const text = await response.text();
 
-    if (text.startsWith("welcome:")) {
-      const nickname = text.split(":")[1];
-      document.getElementById("result").innerHTML = `✅ Welcome, ${nickname}! <a href="https://lookerstudio.google.com/reporting/d7f5975a-4af8-4698-841f-1f5b8d1832fbrt</a>`;
-    } else {
-      document.getElementById("result").innerHTML = "❌ Access not authorized.";
+        if (text.startsWith("welcome:")) {
+          const nickname = text.split(":")[1];
+          document.getElementById("result").innerHTML = `✅ Welcome, ${nickname}! <a href="https://lookerstudio.google.com/reporting/d7f5975a-4af8-4698-841f-2fbOpen Report</a>`;
+        } else {
+          document.getElementById("result").innerHTML = "❌ Access not authorized.";
+        }
+      } catch (error) {
+        document.getElementById("result").innerHTML = "❌ Error connecting to server.";
+      }
     }
-  } catch (error) {
-    document.getElementById("result").innerHTML = "❌ Error connecting to server.";
-  }
-}
   </script>
 </body>
 </html>
