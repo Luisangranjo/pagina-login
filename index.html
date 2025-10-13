@@ -13,7 +13,7 @@
   <script>
     async function verificarID() {
       const id = document.getElementById("userId").value;
-      const url = "https://script.google.com/macros/s/SEU_ENDPOINT_AQUI/exec?id=" + encodeURIComponent(id);
+      const url = "https://script.google.com/macros/s/AKfycbwIcsHldYno-6C4tX9yyDNdZI6sE-FCxq_WWva4Isx5M5ordl4WXoxVByAPl_ggUfU6Yw/exec?id=" + encodeURIComponent(id);
 
       const resposta = await fetch(url);
       const texto = await resposta.text();
