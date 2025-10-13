@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login por ID</title>
+</head>
+<body>
+  <h2>Área Reservada</h2>
+  <input type="text" id="userId" placeholder="Insere o teu ID">
+  <button onclick="verificarID()">Entrar</button>
+  <p id="resultado"></p>
+
+  <script>
+    async function verificarID() {
+      const id = document.getElementById("userId").value;
+      const url = "https://script.google.com/macros/s/SEU_ENDPOINT_AQUI/exec?id=" + encodeURIComponent(id);
+
+      const resposta = await fetch(url);
+      const texto = await resposta.text();
+
+      if (texto === "autorizado") {
+        window.location.href = "https://sites.google.com/view/k3340-migration";
+      } else {
+        document.getElementById("resultado").innerHTML = "❌ Acesso não autorizado.";
+      }
+    }
+  </script>
+</body>
+</html>
