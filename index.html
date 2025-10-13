@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Login Page</title>
 </head>
 <body>
@@ -20,7 +21,7 @@
 
         if (text.startsWith("welcome:")) {
           const nickname = text.split(":")[1];
-          document.getElementById("result").innerHTML = `✅ Welcome, ${nickname}! https://lookerstudio.google.com/reporting/d7f5975a-4af8-4698-841f-1f5b8d1832fbOpen Report</a>`;
+          document.getElementById("result").innerHTML = `✅ Welcome, ${nickname}! <a href="https://lookerstudio.google.com/reporting/d7f5975a-4af1f-1f5b8d1832fbOpen Report</a>`;
         } else {
           document.getElementById("result").innerHTML = "❌ Access not authorized.";
         }
